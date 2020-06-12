@@ -4,6 +4,7 @@ ini_set('display_errors', '1');
 
 header('HTTP STATUS 200 (OK)');
 
+
 if (isset($_POST["collection_id"])){
     echo ($_POST["collection_id"]."<br>");
     echo ($_POST["collection_status"]."<br>");
