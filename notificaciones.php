@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 header('HTTP STATUS 200 (OK)');
 
@@ -20,7 +22,7 @@ if (isset($_POST["collection_id"])){
    
 
 } else {
-
+    enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","NO LLEGA NADA");
     header('HTTP/1.1 500 Internal Server Error');
 
 }
