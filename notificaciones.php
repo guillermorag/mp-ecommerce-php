@@ -19,16 +19,16 @@ if (isset($_POST["collection_id"])){
     
     $cuerpo = "Preferencia ";
 
-    enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP",$cuerpo);
+   // enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP",$cuerpo);
    
 
 } else {
-    enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","NO LLEGA NADA");
+   // enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","NO LLEGA NADA");
     header('HTTP/1.1 500 Internal Server Error');
 
 }
 
-
+/*
 function enviarEmail($email, $nombre, $asunto, $cuerpo){
     require_once 'PHPMailer/PHPMailerAutoload.php';
 
@@ -56,7 +56,7 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo){
 
     }
 
-
+*/
 
 
 /*
