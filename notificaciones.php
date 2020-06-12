@@ -2,7 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
+echo ("hola");
+echo ("<br>");
+print_r($_GET);
+echo("</br>");
 
 if (isset($_GET["type"])){
   
