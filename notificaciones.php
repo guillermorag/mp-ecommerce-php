@@ -2,34 +2,32 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-header('HTTP STATUS 200 (OK)');
 
 
-if (isset($_POST["collection_id"])){
-    echo ($_POST["collection_id"]."<br>");
-    echo ($_POST["collection_status"]."<br>");
-    echo ($_POST["external_reference"]."<br>");
-    echo ($_POST["payment_type"]."<br>");
-    echo ($_POST["preference_id"]."<br>");
-    echo ($_POST["site_id"]."<br>");
+if (isset($_GET["type"])){
+  
+    $cuerpo = "";
+     header('HTTP STATUS 200 (OK)');
 
-    echo ($_POST["processing_mode"]."<br>");
-    echo ($_POST["preference_id"]."<br>");
-    echo ($_POST["merchant_account_id"]."<br>");
     
-    $cuerpo = "Preferencia ";
+	foreach ($_GET as $clave=>$valor)
+   		{
 
-   // enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP",$cuerpo);
+               $cuerpo = $cuerpo."\r \n".$clave ."=>".$valor. "\r \n";
+   		
+           }
+  
+    enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP",$cuerpo);
    
 
 } else {
-   // enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","NO LLEGA NADA");
-   echo ("hola");
-   header('HTTP/1.1 504 Internal Server Error');
+   
+ 
+   header('HTTP/1.1 500 Internal Server Error');
 
 }
 
-/*
+
 function enviarEmail($email, $nombre, $asunto, $cuerpo){
     require_once 'PHPMailer/PHPMailerAutoload.php';
 
@@ -41,7 +39,7 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo){
         // Email del remitente (puedes poner algun email de prueba)
         $mail->setFrom('mp-ecommerce-php@php.com.ar', 'mp-ecommerce-php');
         // Email del destinatario (a quíen se enviará el mensaje)
-        //$mail->addAddress('guillermoragone@gmail.com', 'Guillermo Ragone');
+       
 
         $mail->addAddress($email, $nombre);
     
@@ -57,7 +55,7 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo){
 
     }
 
-*/
+
 
 
 /*
