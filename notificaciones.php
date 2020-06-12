@@ -24,7 +24,8 @@ if (isset($_POST["collection_id"])){
 
 } else {
    // enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","NO LLEGA NADA");
-    header('HTTP/1.1 504 Internal Server Error');
+   echo ("hola");
+   header('HTTP/1.1 504 Internal Server Error');
 
 }
 
