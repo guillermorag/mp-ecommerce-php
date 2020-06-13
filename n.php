@@ -2,9 +2,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+require 'PHPMailer.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
-enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","DESDE EL ESPACIO");
+require __DIR__ .  '/vendor/autoload.php';
+
+//enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","DESDE EL ESPACIO");
 
 if (isset($_GET["type"])){
    // header('HTTP STATUS 200 (OK)');
@@ -29,7 +32,7 @@ $preference = new MercadoPago\Preference();
 
 function enviarEmail($email, $nombre, $asunto, $cuerpo){
 
-    require __DIR__ .  '/vendor/autoload.php';
+   
 
 
 
