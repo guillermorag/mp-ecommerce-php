@@ -7,14 +7,24 @@
 $_SERVIDOR = $_SERVER["HTTP_HOST"];
 
 define ('SUB','/mp-ecommerce-php/');
-
+/*
 define ('URL_SUCESS','https://'.$_SERVIDOR.SUB.'mpsucess.php');
 define ('URL_FAILURE','https://'.$_SERVIDOR.SUB.'mpfailure.php');
 define ('URL_PENDING','https://'.$_SERVIDOR.SUB.'mppending.php');
 
 define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.SUB.'n.php');
 
-define ('URL_IMG','https://'.$_SERVIDOR.SUB.'assets');
+define ('URL_IMG','https://'.$_SERVIDOR.SUB.'assets');*/
+
+define ('URL_SUCESS','https://'.$_SERVIDOR.'mpsucess.php');
+define ('URL_FAILURE','https://'.$_SERVIDOR.'mpfailure.php');
+define ('URL_PENDING','https://'.$_SERVIDOR.'mppending.php');
+
+define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'n.php');
+
+define ('URL_IMG','https://'.$_SERVIDOR.'assets');
+
+
 
 
 
