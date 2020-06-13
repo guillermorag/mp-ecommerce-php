@@ -13,7 +13,7 @@ define ('URL_SUCESS','https://'.$_SERVIDOR.'/mpsucess.php');
 define ('URL_FAILURE','https://'.$_SERVIDOR.'/mpfailure.php');
 define ('URL_PENDING','https://'.$_SERVIDOR.'/mppending.php');
 
-define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/n.php');
+define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/notificaciones.php');
 
 define ('URL_IMG','https://'.$_SERVIDOR.'assets');
 
@@ -35,7 +35,7 @@ function retorno  ($id){
    $cadena = "Este es el id =>".$id;
 
 
-   
+
       // Abrir el archivo, creándolo si no existe:
 	$archivo = fopen("datos.txt","w+b");  
 
