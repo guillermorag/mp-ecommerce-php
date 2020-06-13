@@ -2,63 +2,37 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-require 'PHPMailer.php';
-use PHPMailer\PHPMailer\PHPMailer;
-
-require __DIR__ .  '/vendor/autoload.php';
-
-enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","DESDE EL ESPACIO");
-
-if (isset($_GET["type"])){
-   // header('HTTP STATUS 200 (OK)');
-    echo ("hola");
-    echo ("<br>");
-    print_r($_GET);
-    echo("</br>");
-
-} else
- {
-   // header('HTTP STATUS 500 (ERROR)');  
-   echo ("sin datos");
-}
 
 
-MercadoPago\SDK::setAccessToken('TEST-1812378308152654-050423-84389c39bdac24ece93c4e91a323a641-555761697');
+require_once "mp.php" ;
 
 
-
-// Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
-
-function enviarEmail($email, $nombre, $asunto, $cuerpo){
-
+ if(isset($_GET['collection_id']) || isset($_GET['id'])){
    
+   if(isset($_GET['collection_id'])):
+    $id =  $_GET['collection_id'];
+   elseif(isset($_GET['id'])):
+    $id =  $_GET['id'];
+   endif; 
+   
+   
+   $retorno = Retorno($id);
 
-
-
-    $mail = new PHPMailer();
-    // Envio de email simple
-        $mail->isMail();
-        // Desplegar errores y activar el debug
-        $mail->SMTPDebug = 4;
-        // Email del remitente (puedes poner algun email de prueba)
-        $mail->setFrom('mp-ecommerce-php@php.com.ar', 'mp-ecommerce-php');
-        // Email del destinatario (a quíen se enviará el mensaje)
+   if($retorno){
+      // Redirecionar usuario
+     // echo '<script>location.href="index.php"</script>';
+   }else{
+     // Redirecionar usuario e informar erro ao admin
+     // echo '<script>location.href="index.php"</script>';
+      
+      /*
        
-
-        $mail->addAddress($email, $nombre);
-    
-            $mail->Subject = $asunto;
-            $mail->Body    = $cuerpo;
-            $mail->IsHTML(true);
-            
-            if($mail->Send()) {
-                return true;
-            }else{
-                return false;
-                }
-
-    }
+       ENVIAR EMAIL AO ADMIN
+      
+      */
+   }
+   
+ }
 
 
 ?>
