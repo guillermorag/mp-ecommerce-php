@@ -9,11 +9,11 @@ $_SERVIDOR = $_SERVER["HTTP_HOST"];
 //define ('SUB','/mp-ecommerce-php/');
 
 
-define ('URL_SUCESS','https://'.$_SERVIDOR.'mpsucess.php');
-define ('URL_FAILURE','https://'.$_SERVIDOR.'mpfailure.php');
-define ('URL_PENDING','https://'.$_SERVIDOR.'mppending.php');
+define ('URL_SUCESS','https://'.$_SERVIDOR.'/mpsucess.php');
+define ('URL_FAILURE','https://'.$_SERVIDOR.'/mpfailure.php');
+define ('URL_PENDING','https://'.$_SERVIDOR.'/mppending.php');
 
-define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'n.php');
+define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/n.php');
 
 define ('URL_IMG','https://'.$_SERVIDOR.'assets');
 
@@ -26,13 +26,16 @@ require __DIR__ .  '/vendor/autoload.php';
 // Agrega credenciales
 
 MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
-MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+//MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
 
 function retorno  ($id){
 
 
    $cadena = "Este es el id =>".$id;
+
+
+   
       // Abrir el archivo, creándolo si no existe:
 	$archivo = fopen("datos.txt","w+b");  
 
@@ -51,7 +54,8 @@ function retorno  ($id){
 }
 
 
-function crear_preferencia  ($art,$pagador){
+
+function crear_preferencia ($art,$pagador){
 
     $preference = new MercadoPago\Preference();
     
@@ -83,7 +87,7 @@ function crear_preferencia  ($art,$pagador){
     $preference->notification_url = URL_NOTIFICACIONES;  
    
 
-    $preference->save();
+   
 
     $preference->payment_methods = array (
         "excluded_payment_methods" => array (),
@@ -104,7 +108,7 @@ function crear_preferencia  ($art,$pagador){
     );
     $preference->auto_return = "approved";   
 
-   
+    $preference->save();
 
     return ($preference);
 

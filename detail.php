@@ -39,11 +39,13 @@ $pagador = array (
 //crea la preferencia
 
 $p = crear_preferencia ($articulo,$pagador);
-/*
+
+
+
+
 echo ("<pre>");
-print_r ($p);
+print_r ($p->sandbox_init_point);
 echo ("</pre>");
-*/
 ?>
 
 
@@ -57,10 +59,22 @@ echo ("</pre>");
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
 
-    <script
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+
+
+   <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+            function redirect($url) {
+                window.location = $url;
+
+            }
+           
+</script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -180,13 +194,10 @@ echo ("</pre>");
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                   <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
-                                   <form action="/procesar-pago" method="POST">
-                                        <script
-                                        src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                        data-preference-id="<?php echo $p->id; ?>" data-button-label='Pagar la Compra'>
-                                        </script>
-                                    </form>
+                                    <input type="button" class="mercadopago-button" onclick="redirect('<?php echo $p->init_point; ?>')" value="Pagar la Compra">
+                                    
+
+                                   
                                 </div>
                             </div>
                         </div>
