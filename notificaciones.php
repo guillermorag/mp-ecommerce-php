@@ -22,7 +22,7 @@ if (isset($_POST["type"])){
                $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
                $archivo = fopen("datos.txt","w+b");  
                     if( $archivo ) {
-                        file_put_contents("datos.txt", $payment);
+                        file_put_contents("datos.txt", "datos +".$payment);
                     }
                     	fclose($archivo);   
                break;
