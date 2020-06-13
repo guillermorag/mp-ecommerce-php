@@ -1,3 +1,53 @@
+<?php 
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+require_once "mp.php" ;
+
+//Obtengo datos del articulo
+$articulo = $_POST;
+
+
+//Datos del pagador
+
+$pagador = array (
+   "name"=> "Lalo",
+   "surname" => "Landa",
+   "email" => 'test_user_63274575@testuser.com',
+   "phone" => array (
+       "area_code"=> "11",
+       "number" => "22223333"   
+   ),
+    "address" => array (
+
+        "street_name" => "False",
+        "street_number" => 123,
+        "zip_code" => "1111"
+
+           )
+
+
+    );
+
+    
+
+
+
+
+
+//crea la preferencia
+
+$p = crear_preferencia ($articulo,$pagador);
+
+echo ("<pre>");
+print_r ($p);
+echo ("</pre>");
+
+?>
+
+
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     

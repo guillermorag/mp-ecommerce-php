@@ -12,7 +12,7 @@ define ('URL_SUCESS','https://'.$_SERVIDOR.SUB.'mpsucess.php');
 define ('URL_FAILURE','https://'.$_SERVIDOR.SUB.'mpfailure.php');
 define ('URL_PENDING','https://'.$_SERVIDOR.SUB.'mppending.php');
 
-define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.SUB.'/notificaciones/index.php');
+define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.SUB.'n.php');
 
 define ('URL_IMG','https://'.$_SERVIDOR.SUB.'assets');
 
@@ -32,7 +32,7 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
 function retorno  ($id){
 
-    
+
    $cadena = "Este es el id =>".$id;
       // Abrir el archivo, creándolo si no existe:
 	$archivo = fopen("datos.txt","w+b");  
