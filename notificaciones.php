@@ -8,12 +8,13 @@ print_r($_POST);
 echo("</br>");
 */
 
+require_once "mp.php" ;
+
 MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
 
 
 if (isset($_POST["type"])){
-    header('Content-Type: application/json');
-    echo json_encode(['HTTP/1.1 200 OK'], 200);
+    
 
       
        switch($_POST["type"]) {
@@ -35,6 +36,10 @@ if (isset($_POST["type"])){
                $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
                break;
        }
+
+       header('Content-Type: application/json');
+       echo json_encode(['HTTP/1.1 200 OK'], 200);
+
     }
     else {
       //  header('Content-Type: application/json');
