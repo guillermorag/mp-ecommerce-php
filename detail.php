@@ -40,7 +40,7 @@ $pagador = array (
 
 $p = crear_preferencia ($articulo,$pagador);
 
-/*$p->payment_methods = array (
+$p->payment_methods = array (
     "excluded_payment_methods" => array (
          array ( "id" => "AMEX" )),
     "excluded_payment_types" => array (
@@ -49,7 +49,7 @@ $p = crear_preferencia ($articulo,$pagador);
     "installments" => 6
 );
 
-*/
+
 
 echo ("<pre>");
 print_r ($p);
