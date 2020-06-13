@@ -20,6 +20,13 @@ if (isset($_GET["type"])){
 }
 
 
+MercadoPago\SDK::setAccessToken('TEST-1812378308152654-050423-84389c39bdac24ece93c4e91a323a641-555761697');
+
+
+
+// Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
 function enviarEmail($email, $nombre, $asunto, $cuerpo){
 
     require __DIR__ .  '/vendor/autoload.php';
