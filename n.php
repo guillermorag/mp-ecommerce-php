@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","DESDE EL ESPACIO");
 
 if (isset($_GET["type"])){
@@ -21,7 +23,6 @@ if (isset($_GET["type"])){
 function enviarEmail($email, $nombre, $asunto, $cuerpo){
 
     require __DIR__ .  '/vendor/autoload.php';
-
 
 
 
