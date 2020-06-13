@@ -12,19 +12,21 @@ require_once "mp.php" ;
 
 MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
 
+if (isset($_POST["type"]) || isset($_GET["type"])){
+        header('Content-Type: application/json');
+        echo json_encode(['HTTP/1.1 200 OK'], 200);
+}else{
+    header('Content-Type: application/json');
+    echo json_encode(['HTTP/1.1 500 ERROR'], 500);
+}
 
 if (isset($_POST["type"])){
-    
-
       
        switch($_POST["type"]) {
+
            case "payment":
                $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
-               $archivo = fopen("datos.txt","w+b");  
-                    if( $archivo ) {
-                        file_put_contents("datos.txt", "datos +".$payment);
-                    }
-                    	fclose($archivo);   
+               guarda_log($payment);
                break;
            case "plan":
                $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
@@ -49,18 +51,14 @@ if (isset($_POST["type"])){
 
 
     if (isset($_GET["type"])){
-        header('Content-Type: application/json');
-        echo json_encode(['HTTP/1.1 200 OK'], 200);
-    
+       
           
-           switch($_POST["type"]) {
+         
+
+           switch($_GET["type"]) {
                case "payment":
                    $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
-                   $archivo = fopen("datos.txt","w+b");  
-                        if( $archivo ) {
-                            file_put_contents("datos.txt", $payment);
-                        }
-                            fclose($archivo);   
+                   guarda_log($payment);  
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
@@ -74,8 +72,7 @@ if (isset($_POST["type"])){
            }
         }
         else {
-          //  header('Content-Type: application/json');
-          // echo json_encode(['HTTP/1.1 500 ERROR'], 500);
+            
         }
 
 ?>       
