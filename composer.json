@@ -1,7 +1,9 @@
 {
     "name": "mp-ecommerce-php",
     "type": "project",
+    "description" : "implementacion mercado pato",
     "require": {
-        "mercadopago/dx-php": "^2.0"
-    }
+        "mercadopago/dx-php": "^2.0",
+        "phpmailer/phpmailer": "^6.1"
+               }
 }

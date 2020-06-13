@@ -19,7 +19,11 @@ if (isset($_GET["type"])){
 
 
 function enviarEmail($email, $nombre, $asunto, $cuerpo){
-    require_once 'PHPMailer/PHPMailerAutoload.php';
+
+    require __DIR__ .  '/vendor/autoload.php';
+
+
+
 
     $mail = new PHPMailer();
     // Envio de email simple
