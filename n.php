@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 require __DIR__ .  '/vendor/autoload.php';
 
-//enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","DESDE EL ESPACIO");
+enviarEmail("guillermoragone@gmail.com","Guillermo","Notificacion MP","DESDE EL ESPACIO");
 
 if (isset($_GET["type"])){
    // header('HTTP STATUS 200 (OK)');
