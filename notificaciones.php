@@ -1,7 +1,7 @@
 <?php
-/*error_reporting(E_ALL);
+error_reporting(E_ALL);
 ini_set('display_errors', '1');
-
+/*
 echo ("hola");
 echo ("<br>");
 print_r($_POST);
@@ -14,7 +14,9 @@ MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a
 
 if (isset($_POST["type"]) || isset($_GET["type"])){
         header('Content-Type: application/json');
-        echo json_encode(['HTTP/1.1 200 OK'], 200);
+      //  echo json_encode(['HTTP/1.1 200 OK'], 200);
+      http_response_code(200);
+      guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
 }else{
     header('Content-Type: application/json');
     echo json_encode(['HTTP/1.1 500 ERROR'], 500);
@@ -22,12 +24,13 @@ if (isset($_POST["type"]) || isset($_GET["type"])){
 
 
 if (isset($_POST["type"])){
-    guarda_log("post".$_POST);
+   
       
        switch($_POST["type"]) {
 
            case "payment":
                $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
+               
                guarda_log($payment);
                break;
            case "plan":
@@ -59,8 +62,14 @@ if (isset($_POST["type"])){
 
            switch($_GET["type"]) {
                case "payment":
-                   $payment = MercadoPago\Payment.find_by_id($_GET["data_id"]);
-                   guarda_log("Json COn los datos del pago <<".$_GET["data_id"].">>--->".$payment);  
+                  $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
+                  //$payment = \MercadoPago\Payment::find_by_id($_GET["data_id"]);                
+                    $merchant_order = MercadoPago\MerchantOrder::find_by_id($payment->order->id);
+                  // $payment = json_encode (MercadoPago\Payment.find_by_id($_GET["data_id"]));
+               // echo ("<br>");
+                print_r($payment);
+              //  echo("</br>"); 
+                  // guarda_log("Json COn los datos del pago <<".$_GET["data_id"].">>--->".json_encode($merchant_order));  
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
