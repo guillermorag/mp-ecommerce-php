@@ -70,17 +70,6 @@ function crear_preferencia ($art,$pagador){
             array ( "id" => "atm" )
         )
       );
-/*
-    $preference->payment_methods = array (
-        "excluded_payment_methods" => array (
-             array ( "id" => "AMEX" )),
-        "excluded_payment_types" => array (
-           
-            array ( "id" => "atm" )
-        ),
-        "installments" => 6
-    );
-*/
    
 
 
@@ -110,7 +99,7 @@ function path_image($img){
 
 function guarda_log($datos)
 {
-    $nombreArchivo = "datos.txt";
+    $nombreArchivo = "datos1.txt";
     file_put_contents($nombreArchivo, $datos.PHP_EOL, FILE_APPEND);
 /*
   $archivo = fopen("datos.txt","w+b");  
