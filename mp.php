@@ -59,9 +59,9 @@ function crear_preferencia ($art,$pagador){
     $preference->external_reference = "guillermoragone@gmail.com";
     $preference->notification_url = URL_NOTIFICACIONES;  
    
-
+   
     $preference->payment_methods = array(
-        "excluded_payment_types" => array(
+        "excluded_payment_methods" => array(
           array("id" => "amex")
         ),
         "installments" => 6,
@@ -111,7 +111,7 @@ function path_image($img){
 function guarda_log($datos)
 {
     $nombreArchivo = "datos.txt";
-    file_put_contents($nombreArchivo, $datos, FILE_APPEND);
+    file_put_contents($nombreArchivo, $datos.PHP_EOL, FILE_APPEND);
 /*
   $archivo = fopen("datos.txt","w+b");  
    if( $archivo ) {

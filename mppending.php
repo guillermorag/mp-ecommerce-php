@@ -16,7 +16,7 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
 
-    <script src="https://www.mercadopago.com/v2/security.js" view=""></scrip> 
+    <!-- <script src="https://www.mercadopago.com/v2/security.js" view=""></scrip> -->
 
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">

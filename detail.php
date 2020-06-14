@@ -33,7 +33,7 @@ $pagador = array (
     
 
 
-
+    
 
 
 //crea la preferencia
@@ -45,6 +45,9 @@ guarda_log("Preference_id =".$p->id);
 print_r ($p);
 echo ("</pre>");
 */
+
+
+
 ?>
 
 
