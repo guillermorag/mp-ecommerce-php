@@ -16,7 +16,7 @@ if (isset($_POST["type"]) || isset($_GET["type"])){
         header('Content-Type: application/json');
       //  echo json_encode(['HTTP/1.1 200 OK'], 200);
       http_response_code(200);
-      //guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
+      guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
 }else{
     header('Content-Type: application/json');
     echo json_encode(['HTTP/1.1 500 ERROR'], 500);
