@@ -63,21 +63,21 @@ if (isset($_POST["type"])){
            switch($_GET["type"]) {
                case "payment":
                  // $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
-                  $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
+                //  $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
                   
                  
-                  $data =  file_get_contents('https://api.mercadopago.com/v1/payments/:'.$_GET["data_id"].'?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+                  $data =  file_get_contents('https://api.mercadopago.com/v1/payments/'.$_GET["data_id"].'?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
                 //  $a = json_decode($data,true);
 
-                echo ("<br>");
+               /* echo ("<br>");
                   print_r(json_encode($payment));
                   print_r(json_encode($data));
-                echo("</br>"); 
+                echo("</br>"); */
                  
                                
                
-                   guarda_log("JSON DE PAGO<<".$_GET["data_id"].">>---=>".json_encode($payment).'FINNIF');  
-                   guarda_log("DATAAAAAAAAA<<".$_GET["data_id"].">>---=>".json_encode($data).'FINNIF'); 
+                //   guarda_log("JSON DE PAGO<<".$_GET["data_id"].">>---=>".json_encode($payment).'FINNIF');  
+                   guarda_log("JASON DE <<".$_GET["data_id"].">>---=>".json_encode($data).'FINNIF'); 
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
