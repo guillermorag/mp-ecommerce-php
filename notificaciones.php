@@ -14,9 +14,9 @@ MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a
 
 if (isset($_POST["type"]) || isset($_GET["type"])){
         header('Content-Type: application/json');
-      //  echo json_encode(['HTTP/1.1 200 OK'], 200);
-      http_response_code(200);
-      guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
+        echo json_encode(['HTTP/1.1 200 OK'], 200);
+      //http_response_code(200);
+      //guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
 }else{
     header('Content-Type: application/json');
     echo json_encode(['HTTP/1.1 500 ERROR'], 500);
@@ -69,7 +69,7 @@ if (isset($_POST["type"])){
                // echo ("<br>");
                 print_r(json_encode($merchant_order));
               //  echo("</br>"); 
-                   guarda_log("Json COn los datos del pago <<".$_GET["data_id"].">>--->".json_encode($merchant_order));  
+                   guarda_log("MERCHANT_ORDER DE<<".$_GET["data_id"].">>---=>".json_encode($merchant_order));  
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
