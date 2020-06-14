@@ -71,7 +71,7 @@ if (isset($_POST["type"])){
 
                 echo ("<br>");
                   print_r(json_encode($payment));
-                  print_r(json_encode($data))
+                  print_r(json_encode($data));
                 echo("</br>"); 
                  
                                
