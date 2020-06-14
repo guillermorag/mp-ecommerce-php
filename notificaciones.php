@@ -14,8 +14,8 @@ require_once "mp.php" ;
 
 if (isset($_POST["type"]) || isset($_GET["type"])){
         header('Content-Type: application/json');
-        echo json_encode(['HTTP/1.1 200 OK'], 200);
-      //http_response_code(200);
+      //  echo json_encode(['HTTP/1.1 200 OK'], 200);
+      http_response_code(200);
       //guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
 }else{
     header('Content-Type: application/json');
@@ -62,21 +62,22 @@ if (isset($_POST["type"])){
 
            switch($_GET["type"]) {
                case "payment":
+                 // $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
                   $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
                   
-                  
                  
-                  $data =  file_get_contents('https://api.mercadopago.com/v1/payments/:'.$payment->id.'?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
-                  $a = json_decode($data,true);
- 
+                  $data =  file_get_contents('https://api.mercadopago.com/v1/payments/:'.$_GET["data_id"].'?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+                //  $a = json_decode($data,true);
+
+               // echo ("<br>");
+                 // print_r(json_encode($payment));
+                 // print_r(json_encode($data))
+               // echo("</br>"); 
                  
                                
-                    //$merchant_order = MercadoPago\MerchantOrder::find_by_id($payment->order->id);
-                  // $payment = json_encode (MercadoPago\Payment.find_by_id($_GET["data_id"]));
-               // echo ("<br>");
-                //print_r(json_encode($merchant_order));
-              //  echo("</br>"); 
-                   guarda_log("JSON DE PAGO<<".$_GET["data_id"].">>---=>".json_encode($data));  
+               
+                   guarda_log("JSON DE PAGO<<".$_GET["data_id"].">>---=>".json_encode($payment).'FINNIF');  
+                   guarda_log("DATAAAAAAAAA<<".$_GET["data_id"].">>---=>".json_encode($data).'FINNIF'); 
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
