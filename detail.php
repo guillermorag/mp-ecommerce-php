@@ -40,7 +40,7 @@ $pagador = array (
 
 $p = crear_preferencia ($articulo,$pagador);
 
-
+guarda_log("Preference_id =".$p->id);
 /*echo ("<pre>");
 print_r ($p);
 echo ("</pre>");
