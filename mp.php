@@ -60,7 +60,16 @@ function crear_preferencia ($art,$pagador){
     $preference->notification_url = URL_NOTIFICACIONES;  
    
 
-   
+    $preference->payment_methods = array(
+        "excluded_payment_types" => array(
+          array("id" => "credit_card")
+        ),
+        "installments" => 6,
+        "excluded_payment_types" => array (
+           
+            array ( "id" => "atm" )
+        )
+      );
 /*
     $preference->payment_methods = array (
         "excluded_payment_methods" => array (

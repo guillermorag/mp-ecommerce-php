@@ -85,7 +85,7 @@
                                          echo ("REFERENCIA " . $_GET["external_reference"]."<br>");
                                          echo ("TIPO " . $_GET["payment_type"]."<br>");
                                          echo ("PREFERENCIA " . $_GET["preference_id"]."<br>");
-                                         echo ("SITIO " . $_GET["payment_type"]."<br>");
+                                         echo ("SITIO " . $_GET["site_id"]."<br>");
                                          
                                     }  catch (Exception $e) {
                                         echo 'Error Leyendo los datos: ',  $e->getMessage(), "\n";
