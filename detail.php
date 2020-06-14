@@ -50,10 +50,10 @@ $p->payment_methods = array (
 );
 
 
-
-echo ("<pre>");
+/*echo ("<pre>");
 print_r ($p);
 echo ("</pre>");
+*/
 ?>
 
 
