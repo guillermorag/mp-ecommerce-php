@@ -10,7 +10,7 @@ echo("</br>");
 
 require_once "mp.php" ;
 
-MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+//MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
 
 if (isset($_POST["type"]) || isset($_GET["type"])){
         header('Content-Type: application/json');
@@ -63,13 +63,19 @@ if (isset($_POST["type"])){
            switch($_GET["type"]) {
                case "payment":
                   $payment = MercadoPago\Payment::find_by_id($_GET["data_id"]);
-                  //$payment = \MercadoPago\Payment::find_by_id($_GET["data_id"]);                
-                    $merchant_order = MercadoPago\MerchantOrder::find_by_id($payment->order->id);
+                  
+                 
+                  $data =  file_get_contents('https://api.mercadopago.com/v1/payments/:'.$_GET["data_id"].'?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+                  $a = json_decode($data,true);
+ 
+                 
+                               
+                    //$merchant_order = MercadoPago\MerchantOrder::find_by_id($payment->order->id);
                   // $payment = json_encode (MercadoPago\Payment.find_by_id($_GET["data_id"]));
                // echo ("<br>");
-                print_r(json_encode($merchant_order));
+                //print_r(json_encode($merchant_order));
               //  echo("</br>"); 
-                   guarda_log("MERCHANT_ORDER DE<<".$_GET["data_id"].">>---=>".json_encode($merchant_order));  
+                   guarda_log("JSON DE PAGO<<".$_GET["data_id"].">>---=>".json_encode($data));  
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
