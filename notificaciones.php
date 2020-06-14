@@ -59,7 +59,7 @@ if (isset($_POST["type"])){
 
            switch($_GET["type"]) {
                case "payment":
-                   $payment = MercadoPago\Payment.find_by_id($_GET["id"]);
+                   $payment = MercadoPago\Payment.find_by_id($_GET["data_id"]);
                    guarda_log($payment);  
                    break;
                case "plan":

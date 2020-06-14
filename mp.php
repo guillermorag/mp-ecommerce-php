@@ -62,7 +62,7 @@ function crear_preferencia ($art,$pagador){
 
     $preference->payment_methods = array(
         "excluded_payment_types" => array(
-          array("id" => "credit_card")
+          array("id" => "amex")
         ),
         "installments" => 6,
         "excluded_payment_types" => array (
