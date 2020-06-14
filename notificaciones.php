@@ -20,7 +20,7 @@ if (isset($_POST["type"]) || isset($_GET["type"])){
     echo json_encode(['HTTP/1.1 500 ERROR'], 500);
 }
 
-guarda_log("empieza a guardar notificaciones");
+
 if (isset($_POST["type"])){
     guarda_log("post".$_POST);
       
@@ -54,13 +54,13 @@ if (isset($_POST["type"])){
 
     if (isset($_GET["type"])){
        
-        guarda_log("GET =>".json_encode($_GET));
+        guarda_log("VALORES RECIBIDOS =>".json_encode($_GET));
          
 
            switch($_GET["type"]) {
                case "payment":
                    $payment = MercadoPago\Payment.find_by_id($_GET["data_id"]);
-                   guarda_log($payment);  
+                   guarda_log("Json COn los datos del pago <<".$_GET["data_id"].">>--->".$payment);  
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
