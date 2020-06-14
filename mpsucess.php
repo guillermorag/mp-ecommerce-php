@@ -78,7 +78,9 @@
                 </div>
             </div>
                    <div id="respuesta">
+                   
                              <?php 
+      
                                     try{     
                                          echo ("ID DE PAGO " . $_GET["collection_id"]."<br>");
                                          echo ("ESTADO " . $_GET["collection_status"]."<br>");

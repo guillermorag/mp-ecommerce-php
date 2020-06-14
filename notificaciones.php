@@ -67,9 +67,9 @@ if (isset($_POST["type"])){
                     $merchant_order = MercadoPago\MerchantOrder::find_by_id($payment->order->id);
                   // $payment = json_encode (MercadoPago\Payment.find_by_id($_GET["data_id"]));
                // echo ("<br>");
-                print_r($payment);
+                print_r(json_encode($merchant_order));
               //  echo("</br>"); 
-                  // guarda_log("Json COn los datos del pago <<".$_GET["data_id"].">>--->".json_encode($merchant_order));  
+                   guarda_log("Json COn los datos del pago <<".$_GET["data_id"].">>--->".json_encode($merchant_order));  
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
