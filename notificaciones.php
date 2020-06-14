@@ -54,22 +54,22 @@ if (isset($_POST["type"])){
 
     if (isset($_GET["type"])){
        
-        guarda_log("GET".$_GET);
+        guarda_log("GET =>".json_encode($_GET));
          
 
            switch($_GET["type"]) {
                case "payment":
-                   $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
+                   $payment = MercadoPago\Payment.find_by_id($_GET["id"]);
                    guarda_log($payment);  
                    break;
                case "plan":
-                   $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
+                   $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
                    break;
                case "subscription":
-                   $plan = MercadoPago\Subscription.find_by_id($_POST["id"]);
+                   $plan = MercadoPago\Subscription.find_by_id($_GET["id"]);
                    break;
                case "invoice":
-                   $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
+                   $plan = MercadoPago\Invoice.find_by_id($_GET["id"]);
                    break;
            }
         }
