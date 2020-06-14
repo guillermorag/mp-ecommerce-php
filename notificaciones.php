@@ -19,8 +19,10 @@ if (isset($_POST["type"]) || isset($_GET["type"])){
     header('Content-Type: application/json');
     echo json_encode(['HTTP/1.1 500 ERROR'], 500);
 }
+
 guarda_log("empieza a guardar notificaciones");
 if (isset($_POST["type"])){
+    guarda_log("post".$_POST);
       
        switch($_POST["type"]) {
 
@@ -52,7 +54,7 @@ if (isset($_POST["type"])){
 
     if (isset($_GET["type"])){
        
-          
+        guarda_log("GET".$_GET);
          
 
            switch($_GET["type"]) {
