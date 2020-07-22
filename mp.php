@@ -101,7 +101,7 @@ function path_image($img){
 
 function guarda_log($datos)
 {
-    $nombreArchivo = "datos1.txt";
+    $nombreArchivo = "datos.txt";
     file_put_contents($nombreArchivo, $datos.PHP_EOL, FILE_APPEND);
 /*
   $archivo = fopen("datos.txt","w+b");  
