@@ -16,7 +16,7 @@ if (isset($_POST["type"]) || isset($_GET["type"])){
         header('Content-Type: application/json');
       //  echo json_encode(['HTTP/1.1 200 OK'], 200);
       http_response_code(200);
-      guarda_log("DATOSSSS DEEEE post".json_encode($_POST));
+      guarda_log("NOTIFICACIONES (POST)".json_encode($_POST));
 }else{
     header('Content-Type: application/json');
     echo json_encode(['HTTP/1.1 500 ERROR'], 500);
@@ -57,7 +57,7 @@ if (isset($_POST["type"])){
 
     if (isset($_GET["type"])){
        
-        guarda_log("VALORES RECIBIDOS =>".json_encode($_GET));
+        guarda_log("NOTIFICACIONES VALORES RECIBIDOS (GET) =>".json_encode($_GET));
          
 
            switch($_GET["type"]) {
@@ -77,7 +77,7 @@ if (isset($_POST["type"])){
                                
                
                 //   guarda_log("JSON DE PAGO<<".$_GET["data_id"].">>---=>".json_encode($payment).'FINNIF');  
-                   guarda_log("JASON DE <<".$_GET["data_id"].">>---=>".json_encode($data).'FINNIF'); 
+                //   guarda_log("JASON DE <<".$_GET["data_id"].">>---=>".json_encode($data).'FINNIF'); 
                    break;
                case "plan":
                    $plan = MercadoPago\Plan.find_by_id($_GET["id"]);
