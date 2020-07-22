@@ -20,7 +20,7 @@ if (isset($_POST["type"]) || isset($_GET["type"])){
       guarda_log("NOTIFICACIONES (POST)".json_encode($_POST));
 }else{
     header('Content-Type: application/json');
-    echo json_encode(['HTTP/1.1 500 ERROR'], 500);
+    echo json_encode(['HTTP/1.1 500 ERRORR'], 500);
 }
 
 
