@@ -9,6 +9,8 @@ $_SERVIDOR = $_SERVER["HTTP_HOST"];
 //define ('SUB','/mp-ecommerce-php/');
 
 
+
+
 define ('URL_SUCESS','https://'.$_SERVIDOR.'/mpsucess.php');
 define ('URL_FAILURE','https://'.$_SERVIDOR.'/mpfailure.php');
 define ('URL_PENDING','https://'.$_SERVIDOR.'/mppending.php');
