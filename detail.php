@@ -41,6 +41,8 @@ $p = crear_preferencia ($articulo,$pagador);
 guarda_log("CREANDO LA PREFERENCIA");
 guarda_log("Preference_id =".$p->id);
 guarda_log("notification_url =".$p->notification_url);
+guarda_log("picture_url =".$p->picture_url);
+
 
 
 
