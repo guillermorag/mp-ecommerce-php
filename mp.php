@@ -15,7 +15,8 @@ define ('URL_SUCESS','https://'.$_SERVIDOR.'/mpsucess.php');
 define ('URL_FAILURE','https://'.$_SERVIDOR.'/mpfailure.php');
 define ('URL_PENDING','https://'.$_SERVIDOR.'/mppending.php');
 
-define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/notificaciones.php');
+//define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/notificaciones.php');
+define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/prueba.php');
 
 define ('URL_IMG','https://'.$_SERVIDOR.'/assets');
 
