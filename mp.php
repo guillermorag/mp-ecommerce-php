@@ -14,9 +14,7 @@ $_SERVIDOR = $_SERVER["HTTP_HOST"];
 define ('URL_SUCESS','https://'.$_SERVIDOR.'/mpsucess.php');
 define ('URL_FAILURE','https://'.$_SERVIDOR.'/mpfailure.php');
 define ('URL_PENDING','https://'.$_SERVIDOR.'/mppending.php');
-
-//define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/notificaciones.php');
-define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/prueba.php');
+define ('URL_NOTIFICACIONES','https://'.$_SERVIDOR.'/webhookMP.php');
 
 define ('URL_IMG','https://'.$_SERVIDOR.'/assets');
 
@@ -52,7 +50,7 @@ function crear_preferencia ($art,$pagador){
     $item->quantity = $art["unit"];
     $item->unit_price = $art["price"];
 
-    
+    $preference->picture_url = $imagen;
 
     $payer = new MercadoPago\Payer($pagador);
     $preference->payer = $payer;
@@ -90,14 +88,19 @@ function crear_preferencia ($art,$pagador){
 }   
 
 function path_image($img){
-
         
    $r = str_replace ('./assets',"",$img );
-   return URL_IMG.$r;  
+   return myUrlEncode(URL_IMG.$r);  
     
-
-
 }
+
+
+function myUrlEncode($string) {
+    $entities = array('%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26', '%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
+    $replacements = array('!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]");
+    return str_replace($entities, $replacements, urlencode($string));
+}
+
 
 function guarda_log($datos)
 {

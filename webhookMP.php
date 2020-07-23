@@ -12,12 +12,13 @@ $d =  json_decode(file_get_contents("php://input"));
   
 //echo (json_encode($d));
 
+
 guarda_log (json_encode($d));
 
 
 function guarda_log($datos)
 {
-    $nombreArchivo = "prueba.txt";
+    $nombreArchivo = "notificacion.txt";
     file_put_contents($nombreArchivo, $datos.PHP_EOL, FILE_APPEND);
 
 
