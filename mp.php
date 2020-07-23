@@ -90,8 +90,7 @@ function crear_preferencia ($art,$pagador){
 
 function path_image($img){
 
-    
-    
+        
    $r = str_replace ('./assets',"",$img );
    return URL_IMG.$r;  
     
